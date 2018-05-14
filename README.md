@@ -137,17 +137,22 @@ If you get prompted for a Build agent anything in this process, create a new "Ho
 1. Create a VSTS project (e.g. https://paternostromicrosoft.visualstudio.com/)
 
 2. Create a new project called "tomcatwebapp".  It does not matter the source control since we are using an external one.
+![](https://raw.githubusercontent.com/AdamPaternostro/Azure-Tomcat-WAR-Deploy/master/images/step11.png)
 
 3. Click on Builds menu and select Builds
 
 4. Click the "New Defination" button
+![](https://raw.githubusercontent.com/AdamPaternostro/Azure-Tomcat-WAR-Deploy/master/images/step12.png)
 
 5. Select Bitbucket Cloud.  You will need to authorize this.  You can use your username and password for the time being.  You should use an OAuth token for production.
+![](https://raw.githubusercontent.com/AdamPaternostro/Azure-Tomcat-WAR-Deploy/master/images/step13.png)
 
 6. Select your repository and master branch.  
    NOTE: If you do not see this then you might need to go back in and hit refresh.  The first time can be tricky.  You can also click on the Gear icon at the top of VSTS.  Then click on Services.  You can delete or reset your connection to Bitbucket here.  Then start back at step 3 (create a new build).
+![](https://raw.githubusercontent.com/AdamPaternostro/Azure-Tomcat-WAR-Deploy/master/images/step14.png)
    
 7. Click the "Empty process" near the top.
+![](https://raw.githubusercontent.com/AdamPaternostro/Azure-Tomcat-WAR-Deploy/master/images/step15.png)
 
 8. Click the + on the Phase.  To add a task.
 
@@ -156,6 +161,7 @@ If you get prompted for a Build agent anything in this process, create a new "Ho
 10. Change the pom.xml location to myArtifactId/pom.xml
 
 11. Uncheck the JUnit test (optional)
+![](https://raw.githubusercontent.com/AdamPaternostro/Azure-Tomcat-WAR-Deploy/master/images/step16.png)
 
 12.  Press Save and Queue (give it a name).  You can then click on the Build and view it.  An Item will appear near the top of the web page with the Build number.  It is a link.
 
