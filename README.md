@@ -131,14 +131,12 @@ echo "DONE"
 15. Check in your code.  Commit and then Push to Bitbucket.  (You can ignore the WAR and Root.zip files)
 
 ## Automated Build
-If you get prompted for a Build agent anything in this process, create a new "Hosted" one.
-
 1. Create a VSTS project (e.g. https://paternostromicrosoft.visualstudio.com/)
 
 2. Create a new project called "tomcatwebapp".  It does not matter the source control since we are using an external one.
 ![](https://raw.githubusercontent.com/AdamPaternostro/Azure-Tomcat-WAR-Deploy/master/images/step11.png)
 
-3. Click on Builds menu and select Builds
+3. Click on Build and Release menu and select Builds
 
 4. Click the "New Defination" button
 ![](https://raw.githubusercontent.com/AdamPaternostro/Azure-Tomcat-WAR-Deploy/master/images/step12.png)
@@ -150,21 +148,49 @@ If you get prompted for a Build agent anything in this process, create a new "Ho
    NOTE: If you do not see this then you might need to go back in and hit refresh.  The first time can be tricky.  You can also click on the Gear icon at the top of VSTS.  Then click on Services.  You can delete or reset your connection to Bitbucket here.  Then start back at step 3 (create a new build).
 ![](https://raw.githubusercontent.com/AdamPaternostro/Azure-Tomcat-WAR-Deploy/master/images/step14.png)
    
-7. Click the "Empty process" near the top.
-![](https://raw.githubusercontent.com/AdamPaternostro/Azure-Tomcat-WAR-Deploy/master/images/step15.png)
+7. Search for Maven
 
-8. Click the + on the Phase.  To add a task.
+8. Hover over Maven and click Apply
 
-9. Search for Maven and click add.
+9. In the Agent Queue select "Hosted".  You might need to authorize your subscription.
 
-10. Change the pom.xml location to myArtifactId/pom.xml
+10. Cilck on the Maven Task
+
+11. Click the unlink button right after the title "Maven POM file" and change the pom.xml location to myArtifactId/pom.xml
 
 11. Uncheck the JUnit test (optional)
 ![](https://raw.githubusercontent.com/AdamPaternostro/Azure-Tomcat-WAR-Deploy/master/images/step16.png)
 
-12.  Press Save and Queue (give it a name).  You can then click on the Build and view it.  An Item will appear near the top of the web page with the Build number.  It is a link.
+12. Click on the Copy File To task.  Change the **/*.jar to **/*.war. 
+
+13. Right click the Copy File task and select Clone
+
+14.  Change **/*.war to **/*.sh
+
+15.  Press Save and Queue (give it a name).  You can then click on the Build and view it.  An Item will appear near the top of the web page with the Build number.  It is a link.
 
 ## Automated Deployment
+1. Click on Build and Release.  Select Releases.
+
+2. Click the New Defination button
+
+3. Click Empty Process
+
+4. Name your Environment (e.g. Development)
+
+5. Click on Add Artifact in the left hand side.  
+
+6. Select your Build Defination you just created.
+
+7. Click on the Task 0 inside the Development environment.
+
+8. Click the + on Run on Agent
+
+9. Type "bash" in the search box and select "Shell Script" (press Add)
+
+10. Click on the script on the left hand side so you can set some properties.
+
+11. 
 
 
 
