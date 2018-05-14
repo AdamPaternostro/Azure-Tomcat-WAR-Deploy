@@ -10,8 +10,6 @@ Shows how to deploy a WAR file to Azure Web App and avoid the WAR file locking i
 1.
 
 ## Create and Clone Repo
-![](https://raw.githubusercontent.com/AdamPaternostro/Azure-Tomcat-WAR-Deploy/master/images/step1.png)
-
 1. I used Bitbucket for this demo.  You can use whatever Git repository you would like.
 
 2. Create a repository "tomcatwebapp"
