@@ -10,7 +10,6 @@ Shows how to deploy a WAR file to Azure Web App and avoid the WAR file locking i
 1. Open Azure Portal
 
 2. Create a Web App
-   ![](https://raw.githubusercontent.com/AdamPaternostro/Azure-Tomcat-WAR-Deploy/master/images/step7.png)
    
 3. Give it a name and create a App Service.  
    ![](https://raw.githubusercontent.com/AdamPaternostro/Azure-Tomcat-WAR-Deploy/master/images/step8.png)
