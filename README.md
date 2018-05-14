@@ -131,7 +131,7 @@ echo "DONE"
 
 15. Check in your code.  Commit and then Push to Bitbucket.  (You can ignore the WAR and Root.zip files)
 
-## Automated Deployment
+## Automated Build
 If you get prompted for a Build agent anything in this process, create a new "Hosted" one.
 
 1. Create a VSTS project (e.g. https://paternostromicrosoft.visualstudio.com/)
@@ -157,6 +157,9 @@ If you get prompted for a Build agent anything in this process, create a new "Ho
 
 11. Uncheck the JUnit test (optional)
 
-12.  Press Save and Queue (give it a name).
+12.  Press Save and Queue (give it a name).  You can then click on the Build and view it.  An Item will appear near the top of the web page with the Build number.  It is a link.
+
+## Automated Deployment
+
 
 
