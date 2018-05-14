@@ -10,6 +10,8 @@ Shows how to deploy a WAR file to Azure Web App and avoid the WAR file locking i
 1.
 
 ## Create and Clone Repo
+![](https://raw.githubusercontent.com/AdamPaternostro/Azure-Tomcat-WAR-Deploy/master/images/step1.png)
+
 1. I used Bitbucket for this demo.  You can use whatever Git repository you would like.
 
 2. Create a repository "tomcatwebapp"
@@ -17,15 +19,17 @@ Shows how to deploy a WAR file to Azure Web App and avoid the WAR file locking i
 3. Using a prompt, clone to your hard disk: git clone https://adampaternostro@bitbucket.org/adampaternostro/tomcatwebapp.git
 
 ## Create Java App
-1. CD to your folder: cdtomcatwebapp
+![](https://raw.githubusercontent.com/AdamPaternostro/Azure-Tomcat-WAR-Deploy/master/images/step3.png)
 
-2. Export Maven to your PATH if it is not already in your path: export PATH=/Users/adampaternostro/apache-maven-3.5.3/bin:$PATH
+1. CD to your folder: `cd cdtomcatwebapp`
 
-3. Generate Java/Maven project: mvn archetype:generate -DarchetypeArtifactId=maven-archetype-webapp
-   groupId: myGroupId
-   artifactId: myArtifactId
-   version: 1.0-SNAPSHOT
-   package: myPackage
+2. Export Maven to your PATH if it is not already in your path: `export PATH=/Users/adampaternostro/apache-maven-3.5.3/bin:$PATH`
+
+3. Generate Java/Maven project: `mvn archetype:generate -DarchetypeArtifactId=maven-archetype-webapp`
+   - groupId: myGroupId
+   - artifactId: myArtifactId
+   - version: 1.0-SNAPSHOT
+   - package: myPackage
    
 4. Close your prompt.
 
@@ -63,15 +67,15 @@ echo "DONE"
 
 6. Open the Integrated Terminal in VS Code (Under View | Integrated Terminal Menu)
 
-7. In terminal: Change directories: cd myArtifactId
+7. In terminal: Change directories: `cd myArtifactId`
 
-8. In terminal: Export your Maven Path: export PATH=/Users/adampaternostro/apache-maven-3.5.3/bin:$PATH
+8. In terminal: Export your Maven Path: `export PATH=/Users/adampaternostro/apache-maven-3.5.3/bin:$PATH`
 
-8. In terminal: Build: mvn package
+8. In terminal: Build: `mvn package`
 
-9. In terminal: Set execute: chmod +x ./src/deploy-local.sh
+9. In terminal: Set execute: `chmod +x ./src/deploy-local.sh`
 
-10. In terminal: Run deploy: ./src/deploy-local.sh
+10. In terminal: Run deploy: `./src/deploy-local.sh`
 
 
 
