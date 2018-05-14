@@ -1,11 +1,12 @@
 # Azure-Tomcat-WAR-Deploy
 Shows how to deploy a WAR file to Azure Web App and avoid the WAR file locking issue.
 
-Assumptions:
+## Assumptions:
 1. You have Java installed
 2. You have Maven installed.
 3. I use VS Code, but any text editor will do.
 
+## Steps
 1. I used Bitbucket for this demo.  You can use whatever Git repository you would like.
 
 2. Create a repository "tomcatwebapp"
