@@ -169,6 +169,8 @@ echo "DONE"
 
 15.  Press Save and Queue (give it a name).  You can then click on the Build and view it.  An Item will appear near the top of the web page with the Build number.  It is a link.
 
+16. Wait for the Build to complete.
+
 ## Automated Deployment
 1. Click on Build and Release.  Select Releases.
 
@@ -180,7 +182,7 @@ echo "DONE"
 
 5. Click on Add Artifact in the left hand side.  
 
-6. Select your Build Defination you just created.
+6. Select your Build Defination you just created.  Click Add.
 
 7. Click on the Task 0 inside the Development environment.
 
@@ -190,7 +192,23 @@ echo "DONE"
 
 10. Click on the script on the left hand side so you can set some properties.
 
-11. 
+11. Click the "..." next to script path and select deploy-vsts.sh.  $(System.DefaultWorkingDirectory)/_tomcatwebapp-Maven-CI/drop/myArtifactId/src/deploy-vsts.sh
+
+12.  You can change the release defination name.  Click on the words "New Release Definition" and change.
+
+13. Click Save
+
+14. Click "+ Release" and create a release.
+
+15. Click on the new Release item at the top of the page.  You can watch the release.
+
+## Testing
+1. Edit the index.jsp
+2. Commit your changes.
+3. Push to Bitbucket.
+4. Run your Build process in VSTS.
+5. Run your Release process in VSTS.
+6. You should see your changed in your site.
 
 
 
