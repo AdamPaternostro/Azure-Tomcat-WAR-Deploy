@@ -61,7 +61,7 @@ Shows how to deploy a WAR file to Azure Web App and avoid the WAR file locking i
 
 2. Open your folder
 
-3. Create deploy.sh in the src folder
+3. Create deploy-local.sh in the src folder
 
 4. Place the following inside the script
 ```
@@ -86,7 +86,7 @@ curl -X POST -u $username:$password https://$sitename.scm.azurewebsites.net/api/
 echo "DONE"
 ```
 
-5.  Change the sitename and change the password you used when creating your Azure Web App.
+5. Change the sitename and change the password you used when creating your Azure Web App.
 
 6. Open the Integrated Terminal in VS Code (Under View | Integrated Terminal Menu)
 
@@ -100,5 +100,63 @@ echo "DONE"
 
 10. In terminal: Run deploy: `./src/deploy-local.sh`
 
+11. Open your Azure website and you should see "Hello World"
+
+12. Create deploy-vsts.sh in the src folder
+
+13. Place the following inside the script:
+```
+#!/bin/bash
+
+echo "STEP 1 (Determine WAR file path)"
+warFilePath="$AGENT_RELEASEDIRECTORY\_$BUILD_DEFINITIONNAME\drop\myArtifactId\target\myArtifactId.war"
+echo $warFilePath
+
+echo "STEP 2 (Copy WAR file as ROOT.zip)"
+cp $warFilePath ROOT.zip 
+
+echo "STEP 3 (Set variables)"
+username="adampaternostro"
+password="<<REPLACE ME>>"
+sitename="<<REPLACE ME>>"
+warZipFile="ROOT.zip"
+
+echo "STEP 4 (POST using cURL)"
+curl -X POST -u $username:$password https://$sitename.scm.azurewebsites.net/api/wardeploy --data-binary @$warZipFile
+
+echo "DONE"
+```
+
+14. Change the sitename and change the password you used when creating your Azure Web App.
+
+15. Check in your code.  Commit and then Push to Bitbucket.  (You can ignore the WAR and Root.zip files)
+
+## Automated Deployment
+If you get prompted for a Build agent anything in this process, create a new "Hosted" one.
+
+1. Create a VSTS project (e.g. https://paternostromicrosoft.visualstudio.com/)
+
+2. Create a new project called "tomcatwebapp".  It does not matter the source control since we are using an external one.
+
+3. Click on Builds menu and select Builds
+
+4. Click the "New Defination" button
+
+5. Select Bitbucket Cloud.  You will need to authorize this.  You can use your username and password for the time being.  You should use an OAuth token for production.
+
+6. Select your repository and master branch.  
+   NOTE: If you do not see this then you might need to go back in and hit refresh.  The first time can be tricky.  You can also click on the Gear icon at the top of VSTS.  Then click on Services.  You can delete or reset your connection to Bitbucket here.  Then start back at step 3 (create a new build).
+   
+7. Click the "Empty process" near the top.
+
+8. Click the + on the Phase.  To add a task.
+
+9. Search for Maven and click add.
+
+10. Change the pom.xml location to myArtifactId/pom.xml
+
+11. Uncheck the JUnit test (optional)
+
+12.  Press Save and Queue (give it a name).
 
 
