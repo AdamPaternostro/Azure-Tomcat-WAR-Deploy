@@ -211,4 +211,8 @@ echo "DONE"
 6. You should see your changed in your site.
 
 
+## Notes
+1.	Make sure the WAR has a web.xml file in the WEB-INF directory. 
 
+3.	Make sure you still warm-up your web app (and use slots): https://docs.microsoft.com/en-us/azure/app-service/web-sites-staged-publishing#custom-warm-up-before-swap
+   
