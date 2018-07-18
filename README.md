@@ -1,6 +1,8 @@
 # Azure-Tomcat-WAR-Deploy
 Shows how to deploy a WAR file to Azure Web App and avoid the WAR file locking issue.
 
+Update: July 18, 2018: On Windows: you can now deploy to directories other than ROOT. You need to use the /api/wardeploy?name=<app name> end point. For example: POST /api/wardeploy?name=abc1 will deploy to /wwwroot/webapps/abc1. https://github.com/projectkudu/kudu/wiki/Deploying-WAR-files-using-wardeploy
+
 ## Assumptions:
 1. You have Java installed
 2. You have Maven installed.
